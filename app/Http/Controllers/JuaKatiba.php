@@ -1,0 +1,123 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Content;
+use App\Midahalo;
+use App\Habari;
+use App\Machapisho;
+use App\Katiba77;
+use App\Katiba;
+use App\History;
+
+class JuaKatiba extends Controller
+{
+    public function index() {
+      $midahalo = Midahalo::where('type', 'swahili')
+                              ->orderBy('id', 'desc')
+                              ->get();
+      $news = Habari::where('type', 'swahili')
+                        ->orderBy('id', 'desc')
+                        ->get();
+      return view('index', [
+        'midahalo' => $midahalo,
+        'news' => $news,
+      ]);
+    }
+
+    public function index_en() {
+      return view('index_en');
+    }
+
+    public function read_katiba() {
+      $utangulizi = Content::where('context', 'utangulizi')
+                               ->where('katiba', 'katiba77')
+                               ->first();
+      return view('level_two.read_katiba1977')
+                                ->with('utangulizi', $utangulizi);
+    }
+
+    public function read_wananchi() {
+      $utangulizi = Content::where('context', 'utangulizi')
+                               ->where('katiba', 'katibaMpya')
+                               ->first();
+      return view('level_two.read_katiba_wananchi')
+                                ->with('utangulizi', $utangulizi);
+    }
+
+    public function read_warioba() {
+      return view('level_two.read_katiba_warioba');
+    }
+
+    public function history() {
+      $history = History::orderBy('id', 'asc')->get();
+      return view('level_two.history')->with('history', $history);
+    }
+
+    public function machapisho() {
+      $machapisho = Machapisho::orderBy('id', 'desc')->get();
+      return view('level_two.machapisho')
+                                ->with('machapisho', $machapisho);
+    }
+
+    public function faq() {
+      return view('level_two.faq');
+    }
+
+    public function debates($id) {
+      $mdahalo = Midahalo::where('id', $id)
+                              ->where('type', 'swahili')
+                              ->first();
+      $midahalo = Midahalo::where('type', 'swahili')
+                                ->orderBy('id', 'desc')
+                                ->get();
+      return view('level_two.debating', [
+        'mdahalo' => $mdahalo,
+        'midahalo' => $midahalo,
+      ]);
+    }
+
+    public function fetch_ibara($katiba, $ibara) {
+      $ibara = Katiba77::where('katiba', $katiba)
+                            ->where('ibara', $ibara)
+                            ->first();
+      return response()->json([
+          'ibara' => $ibara->description,
+        ]);
+    }
+
+    public function download_katiba($type) {
+      if($type == 1)
+          $path = "assets/images/katiba.pdf";
+      else if($type == 2)
+          $path = "assets/images/katiba2.pdf";
+      else if($type == 3)
+          $path = "assets/images/katiba3.pdf";
+
+      return $this->download($path);
+    }
+
+    public function download_chapisho($file_name) {
+      $path = 'uploads/' . $file_name;
+      return $this->download($path);
+    }
+
+    private function download($path) {
+      if(file_exists($path)) {
+
+        $headers = [
+          'Content-Description' => 'File Transfer',
+          'Content-Type' => 'application/pdf',
+          'Content-Disposition' => 'attachment; filename="'.basename($path).'"',
+          'Expires' => '0',
+          'Cache-Control' => 'must-revalidate',
+          'Pragma' =>  'public',
+          'Content-Length' => filesize($path),
+        ];
+
+        return response()->download($path, basename($path), $headers);
+      }
+    }
+}

@@ -1,0 +1,96 @@
+.green-txt{
+    color:#00c853 !important;
+}
+.blue-txt{
+    color: #2979FF !important;
+}
+.green-bg{
+    background-color: #00a74b !important;
+}
+.blue-bg{
+    background-color: #2075cd !important;
+}
+
+#sign-in{
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    /*background:url("<?php echo base_url('backend_assets/images/shdw.png')?>") repeat;*/
+    background: rgba(000,000,000,0.8);
+    position:fixed;
+    z-index:9999;
+   /* display: none;*/
+    font-family: Raleway
+
+
+
+}
+#sign-in section{
+
+    margin: 15% auto;
+    background:rgb(240,242,245);
+    /*border: solid 1px  #b01e13;*/
+    width:350px;
+    height:315px;
+    box-shadow:0px 0px 10px #000;
+    z-index:1010101010;
+    /*padding: 50px 10% 50px 10%;*/
+    overflow: scroll;
+    color: #ffffff;
+    font-size: 1.2em;
+    line-height: 20px;
+    text-align: justify;
+    border-radius: 5px;
+    overflow: visible;
+}
+#sign-in a{
+    color: antiquewhite;
+    text-decoration: underline;
+}
+/**
+#signk-in input[type="text"],input[type="password"]{
+    width: 100%;
+    height: 50px;
+    border-radius: 3px;
+    border: solid 1px #ffffff;
+    color: #000000;
+    text-indent: 45px;
+    font-weight: 200;
+    text-height: 20px;
+}**/
+#sign-in input[type="button"]{
+    width: 100%;
+    height: 40px;
+    background: #00a74b;
+    border: solid 1px lightgrey;
+    color: white;
+    border-radius: 5px;
+
+    position: relative;
+}
+
+.quicklinks li a{
+    font-size: 1.5em;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+}
+
+
+.quicklinks li{
+    list-style-type: none;
+    margin-top: 20px;
+}
+.quicklinks li span{
+    margin-left: 60px;
+    text-align: left;
+    display: list-item;
+    list-style: outside;
+    line-height: 15px;
+
+}
+
+.tinymce-content p {
+   line-height: 0.1;
+}
