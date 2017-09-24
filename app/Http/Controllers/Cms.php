@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Image;
 
 use App\Content;
 use App\Midahalo;
@@ -208,6 +209,7 @@ class Cms extends Controller
               $file_name = $file->getClientOriginalName();
               $destination = 'uploads/' . $file_name;
               move_uploaded_file($path, $destination);
+              $this->thumbNail($file_name);
             }
           }
           $params = $request->only('title', 'link',
@@ -254,13 +256,16 @@ class Cms extends Controller
         if($file->isValid()) {
           $old_file = Habari::find($id)->image;
           $old_location = 'uploads/' . $old_file;
-          unlink($old_location); //delete the old_file
+          $old_thumb = 'uploads/thumb' . $old_file;
+          unlink($old_location); //delete the old_files
+          unlink($old_thumb);
           $path = $file->path();
           $file_name = $file->getClientOriginalName();
           $destination = 'uploads/' . $file_name;
           move_uploaded_file($path, $destination);
+          $this->thumbNail($file_name);
         }
-        if(form_name == "news") {
+        if($form_name == "news") {
           Habari::where('id', $id)->update(['image' => $file_name, ]);
           return $this->news_details($id);
         }
@@ -313,5 +318,15 @@ class Cms extends Controller
 
         return response()->download($path, basename($path), $headers);
       }
+    }
+
+    private function thumbNail($file_name) {
+      $source_loc = public_path('uploads/' . $file_name);
+      $image = Image::make($source_loc);
+      $image = $image->resize(300, null, function($constraint) {
+                  $constraint->aspectRatio();
+              });
+      $thumb_loc = public_path('uploads/thumb/' . $file_name);
+      $image->save($thumb_loc);
     }
 }
