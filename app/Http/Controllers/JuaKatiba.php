@@ -21,10 +21,20 @@ class JuaKatiba extends Controller
       $news = Habari::where('type', 'swahili')
                         ->orderBy('id', 'desc')
                         ->get();
-      return view('index', [
-        'midahalo' => $midahalo,
-        'news' => $news,
-      ]);
+
+      $socials = [
+          "https://twitter.com/JuaKatibaTz/status/911508472923074561",
+          "https://twitter.com/JuaKatibaTz/status/911516983006519297",
+          "https://twitter.com/JuaKatibaTz/status/908252671026622465",
+          "https://twitter.com/JuaKatibaTz/status/908245446698692608",
+          "https://twitter.com/ebeisnation/status/908246078486667264",
+          "https://twitter.com/JuaKatibaTz/status/908234195348180992",
+          "https://twitter.com/JuaKatibaTz/status/908236729898991616",
+          "https://twitter.com/JuaKatibaTz/status/853852636390600704",
+          "https://twitter.com/tanzania_bora/status/775643547102052353"
+      ];
+
+      return view('index', compact('midahalo','news', 'socials'));
     }
 
     public function index_en() {
