@@ -21,55 +21,16 @@
     <style>
         body{
             background: #fafafa;
-        }
-
-        #landingBanner{
-            position: relative;
-            height: 250px;
-            margin-bottom: 400px;
-        }
-
-        #imageShape{
-            position: absolute;
-            width: 100%;
-            height: 500px;
-            transform-origin: top left;
-            transform: skewY(-8deg);
-            overflow: hidden;
-        }
-
-        #landingBanner .image{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120%;
-            -webkit-background-size: cover;
-            background-size: cover;
-            transform: skewY(8deg);
-        }
-
-        #imageShape .scrim{
-            z-index: 9;
-            top: 0;
-            left: 0;
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background: #ffb223;
-            background-image: -webkit-linear-gradient(#ffb223, #febd17);
-            background-image: -o-linear-gradient(#ffb223, #febd17);
-            background-image: linear-gradient(#ffb223, #febd17);
-        }
-
-        #bannerContainer{
-            max-width: 1000px;
-            margin: auto;
+            background: #fff;
         }
 
         #toppestNav{
-            min-height: 120px;
-            padding: 20px 0;
+            min-height: 80px;
+            padding: 0 2em;
+        }
+
+        #bannerNav{
+            z-index: 9;
         }
 
         #logo{
@@ -85,14 +46,20 @@
         }
 
         .social-icon{
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background-color: #fff;
+            background-color: #f0f0f0;
             color: #000;
             text-align: center;
             line-height: 30px;
             margin-left: 4px;
+            font-size: 14px;
+        }
+
+        #theMainContent{
+            min-height: 400px;
         }
     </style>
 
@@ -105,10 +72,28 @@
 
 <body>
     @yield('styles')
-    @yield('content')
-    @yield('scripts')
+    @include('layouts.toppestNav')
+    @include('layouts.nav')
+
+    <main id="theMainContent">
+        @yield('content')
+    </main>
+
     @include('layouts.footer')
-    <script></script>
+
+    <script src="{{url('assets/js/lib/ScrollMagic.min.js')}}" type="text/javascript"></script>
+    <script>
+        var navController = new ScrollMagic.Controller();
+
+        new ScrollMagic.Scene({
+            triggerElement: "#bannerNav",
+            offset: 295
+        })
+            .setPin("#bannerNav")
+            .setClassToggle('#bannerNav', 'stuck')
+            .addTo(navController);
+    </script>
+    @yield('scripts')
 </body>
 </html>
 

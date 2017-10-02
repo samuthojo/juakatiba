@@ -62,8 +62,17 @@ class JuaKatiba extends Controller
     }
 
     public function history() {
-      $history = History::orderBy('id', 'asc')->get();
-      return view('level_two.history')->with('history', $history);
+      $history = History::orderBy('id', 'asc');
+      $histories = $history->get()->map(function ($h){
+          return collect([
+              "year" => $h->date,
+              "title" => strtoupper(substr($h->title, 0, 1)) . strtolower(substr($h->title, 1, strlen($h->title))),
+              "description" => strip_tags($h->description)
+          ]);
+      });
+      $years = $history->pluck('date');
+//      return view('level_two.history')->with('history', $history);
+      return view('history.index', compact('histories', 'years'));
     }
 
     public function machapisho() {

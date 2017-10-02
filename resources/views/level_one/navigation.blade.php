@@ -72,7 +72,6 @@
             <li id="articles-li"><a href="{{url('machapisho')}}">MACHAPISHO Ya Katiba</a></li>
             <li id="video-li"><a href="{{url('read_katiba')}}">SOMA & PAKUA KATIBA</a></li>
             <li id="nafsi-li"><a  href="{{url('faq')}}" >FAQ</a></li>
-
         </ul>
     </nav>
 </div>

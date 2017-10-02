@@ -1,164 +1,164 @@
 <style>
-.read-katiba{
-    width: 100%;
-    height: auto;
-    display: table;
-    background: #f1f1f1;
-    top: 80px;
-    overflow-y: hidden;
-    position: fixed;
+    .read-katiba{
+        width: 100%;
+        height: auto;
+        display: table;
+        background: #f1f1f1;
+        top: 80px;
+        overflow-y: hidden;
+        position: fixed;
 
-}
-.katiba-container{
-    width: 100%;
-    height: auto;
-    display: table;
-}
-.katiba-container >div{
-    float: left;
-}
-.katiba-container .right-nav{
-    width: 20%;
-    height: 100vh;
-    background: #fff;
-    border-right: 1px solid #e8e8e8;;
-    overflow-y: scroll;
-    padding-bottom: 200px;
-}
-.katiba-container .mid-nav{
-    width: 80%;
-    height:auto;
-    display: table;
-    background: transparent;
-}
-.top-nav{
-    float: none;
-    width: 100%;
-    margin: 0 auto;
-    height: 50px;
-    background: #ffffff;
-    border-bottom: 1px solid #e8e8e8;
-}
-.top-nav ul{
-    width: 80%;
-    height: 100%;
-    margin: 0 auto;
-}
-.top-nav ul li{
-    width: 33.333%;
-    height: 100%;
-    float: left;
-    line-height: 5;
-    text-align: center;
-    font-family: "Lato regular", serif;
-    text-transform: uppercase;
-    font-size: 0.8em;
-}
-.top-nav ul li a{
-    padding-bottom: 8px;
-    color: #333;
-}
-.top-nav ul li.active a{
-    border-bottom: solid 2px purple;
-    color: #000;
-}
-.feed-container{
-    width: 100%;
-    height: 600px;
-
-    overflow-y: scroll;
-    background: transparent;
-}
-.katiba-container .katiba-feed{
-    width: 90%;
-    min-height: 900px;
-    height: auto;
-    display: table;
-    background: #ffffff;
-    margin: 0 auto 100px;
-    top: 20px;
-    border: 1px solid #e8e8e8;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.04);
-    font-size: 1.2em;
-    padding: 30px 20px;
-    line-height: 1.35;
-    text-align: justify;
-    color: #000;
-
-}
-.katiba-container .katiba-feed strong{
-    font-family: "Lato bold", serif;
-}
-.katiba-container .katiba-feed p{
-    margin-bottom: 10px;
-    display: block;
-}
-.top-nav .pakua-btn{
-    display: block;
-    float: right;
-    padding: 10px;
-    background-color: #7b2789;
-    color: #ffffff;
-    top: 5px;
-    right: 50px;
-    font-family: "Lato regular", serif;
-}
-
-.yaliyomo-menu{
-    position: absolute;
-
-    left: 10px;
-    font-size: 0.7em;
-    font-family: "Lato bold", serif;
-    color: purple;
-    display: none;
-
-
-}
-.yaliyomo-menu:before{
-    content: "\2261";
-    color: purple;
-    font-size: 3em;
-
-}
-.katiba-container .right-nav.show{
-    transform: translateX(0%);
-    z-index: 2;
-    width: 100%;
-    transition: all 0.3s ease-in;
-
-}
-
-.loader{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -50px;
-    z-index: 10;
-    display: none;
-}
-@media screen and (max-width: 800px) {
-    .katiba-container .right-nav{
-        transform: translateX(-100%);
-        position: absolute;
-        left: 0;
-        top: 0;
     }
-    #cssmenu{
-        position: absolute;
+    .katiba-container{
+        width: 100%;
+        height: auto;
+        display: table;
+    }
+    .katiba-container >div{
+        float: left;
+    }
+    .katiba-container .right-nav{
+        width: 20%;
+        height: 100vh;
+        background: #fff;
+        border-right: 1px solid #e8e8e8;;
+        overflow-y: scroll;
+        padding-bottom: 200px;
     }
     .katiba-container .mid-nav{
+        width: 80%;
+        height:auto;
+        display: table;
+        background: transparent;
+    }
+    .top-nav{
+        float: none;
         width: 100%;
+        margin: 0 auto;
+        height: 50px;
+        background: #ffffff;
+        border-bottom: 1px solid #e8e8e8;
+    }
+    .top-nav ul{
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    .top-nav ul li{
+        width: 33.333%;
+        height: 100%;
+        float: left;
+        line-height: 5;
+        text-align: center;
+        font-family: "Lato regular", serif;
+        text-transform: uppercase;
+        font-size: 0.8em;
+    }
+    .top-nav ul li a{
+        padding-bottom: 8px;
+        color: #333;
+    }
+    .top-nav ul li.active a{
+        border-bottom: solid 2px purple;
+        color: #000;
+    }
+    .feed-container{
+        width: 100%;
+        height: 600px;
+
+        overflow-y: scroll;
+        background: transparent;
     }
     .katiba-container .katiba-feed{
-        width: 97%;
+        width: 90%;
+        min-height: 900px;
+        height: auto;
+        display: table;
+        background: #ffffff;
+        margin: 0 auto 100px;
+        top: 20px;
+        border: 1px solid #e8e8e8;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.04);
+        font-size: 1.2em;
+        padding: 30px 20px;
+        line-height: 1.35;
+        text-align: justify;
+        color: #000;
+
+    }
+    .katiba-container .katiba-feed strong{
+        font-family: "Lato bold", serif;
+    }
+    .katiba-container .katiba-feed p{
+        margin-bottom: 10px;
+        display: block;
+    }
+    .top-nav .pakua-btn{
+        display: block;
+        float: right;
+        padding: 10px;
+        background-color: #7b2789;
+        color: #ffffff;
+        top: 5px;
+        right: 50px;
+        font-family: "Lato regular", serif;
     }
 
     .yaliyomo-menu{
-        display: block;
+        position: absolute;
+
+        left: 10px;
+        font-size: 0.7em;
+        font-family: "Lato bold", serif;
+        color: purple;
+        display: none;
+
+
+    }
+    .yaliyomo-menu:before{
+        content: "\2261";
+        color: purple;
+        font-size: 3em;
+
+    }
+    .katiba-container .right-nav.show{
+        transform: translateX(0%);
+        z-index: 2;
+        width: 100%;
+        transition: all 0.3s ease-in;
+
     }
 
-}
+    .loader{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -50px;
+        z-index: 10;
+        display: none;
+    }
+    @media screen and (max-width: 800px) {
+        .katiba-container .right-nav{
+            transform: translateX(-100%);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #cssmenu{
+            position: absolute;
+        }
+        .katiba-container .mid-nav{
+            width: 100%;
+        }
+        .katiba-container .katiba-feed{
+            width: 97%;
+        }
+
+        .yaliyomo-menu{
+            display: block;
+        }
+
+    }
 </style>
 
 

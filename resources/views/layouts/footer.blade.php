@@ -155,16 +155,16 @@
                 <div id="footerLinks">
                     <h3>LINK MUHIMU</h3>
                     <div class="layout vertical">
-                        <a href="#">
+                        <a href="{{url('read_katiba')}}">
                             Soma na pakua katiba
                         </a>
-                        <a href="#">
+                        <a href="{{url('history')}}">
                             Historia ya katiba
                         </a>
-                        <a href="#">
+                        <a href="{{url('machapisho')}}">
                             Machapisho muhimu
                         </a>
-                        <a href="#">
+                        <a href="{{url('faq')}}">
                             Maswali muhimu
                         </a>
                     </div>
