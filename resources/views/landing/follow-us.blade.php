@@ -1,4 +1,27 @@
+<script>
+    $(window).load(function() {
+        $.getScript( "//assets.juicer.io/embed.js");});
+</script>
+
+<link href="//assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css" />
+
 <style>
+    .juicer{
+        display: none!important;
+    }
+    .juicer-feed h1.referral{
+        display: none !important;
+    }
+    .ipf-social{
+        padding: 10px 0 150px;
+
+    }
+    @media all and (max-width : 520px) {
+        .ipf-social{
+            padding:50px 0;
+        }
+    }
+
     #folowUs{
         background: #ffb223;
         background-image: -webkit-linear-gradient(top left, #febd17 20%, #ffb223);
@@ -87,20 +110,24 @@
     </h3>
 
     <div id="followUsLinks">
-        <button class="layout center" onclick="scrollLinks(0)">
-            <i class="fa fa-chevron-left"></i>
-        </button>
-        <button class="layout center" onclick="scrollLinks(1)">
-            <i class="fa fa-chevron-right"></i>
-        </button>
+        {{--<button class="layout center" onclick="scrollLinks(0)">--}}
+            {{--<i class="fa fa-chevron-left"></i>--}}
+        {{--</button>--}}
+        {{--<button class="layout center" onclick="scrollLinks(1)">--}}
+            {{--<i class="fa fa-chevron-right"></i>--}}
+        {{--</button>--}}
 
-        <div id="followUsLinksScroller" class="layout">
-            @for($i = 0; $i < count($socials); $i++)
-                <a href="{{$socials[$i]}}" target="_blank" class="follow-us-link layout center-center">
-                    <img src="{{asset('assets/images/socials/' . ($i+1) . '.jpg')}}" alt="#JuaKatiba">
-                    <span class="scrim"></span>
-                </a>
-            @endfor
-        </div>
+        <ul id="followUsLinksScroller" class="juicer-feed" data-feed-id="tanzaniabora">
+
+        </ul>
+
+        {{--<div id="followUsLinksScroller" class="layout">--}}
+            {{--@for($i = 0; $i < count($socials); $i++)--}}
+                {{--<a href="{{$socials[$i]}}" target="_blank" class="follow-us-link layout center-center">--}}
+                    {{--<img src="{{asset('assets/images/socials/' . ($i+1) . '.jpg')}}" alt="#JuaKatiba">--}}
+                    {{--<span class="scrim"></span>--}}
+                {{--</a>--}}
+            {{--@endfor--}}
+        {{--</div>--}}
     </div>
 </div>
