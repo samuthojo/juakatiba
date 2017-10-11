@@ -47,10 +47,14 @@
             });
 
 
-        function loadIframe(url) {
-            console.log(url);
+        function loadIframe(id) {
+            var url = "https://www.youtube.com/embed/" + id;
+            var src = "http://img.youtube.com/vi/"+id+"/maxresdefault.jpg";
+            console.log(url, src);
+
             $iframe = $('<iframe id="curVideo" width="100%" height="100%" src="'+url+'?rel=0" frameborder="0" allowfullscreen=""></iframe>')
             $('#curVideo').replaceWith($iframe);
+            $("#landingBanner .image").css({'background-image' : 'url(' + src + ')'});
         }
     </script>
 @endsection

@@ -34,7 +34,34 @@ class JuaKatiba extends Controller
           "https://twitter.com/tanzania_bora/status/775643547102052353"
       ];
 
-      return view('index', compact('midahalo','news', 'socials'));
+      $videos = [
+          [
+              "id" => "qCclNws1Z4w",
+              "title" => "Utaratibu wa Kupiga Kura huwa unaendaje?"
+          ],
+          [
+              "id" => "HS3RQm-bRp0",
+              "title" => "Jinsi vijana wanajielezea kwa vipaji vyao-Kitaa"
+          ],
+          [
+              "id" => "KRYTxpoLyRA",
+              "title" => "Umejiandaa vipi kwa mwaka unaokuja? /Ndoto kubwa show?"
+          ],
+          [
+              "id" => "egmgdYUBcpU",
+              "title" => "Je wapiga kura wanamategemeo gani kwa uongozi mpya?"
+          ],
+          [
+              "id" => "JUtszt_KDsc",
+              "title" => "Umejiandaaje kimwili kwa ajili ya mwaka wa kazi?"
+          ],
+          [
+              "id" => "XxFmByb-Yi4",
+              "title" => "Hesabu Kila mahali /Ndoto Kubwa~ Interview"
+          ],
+      ];
+
+      return view('index', compact('midahalo','news', 'socials', 'videos'));
     }
 
     public function index_en() {

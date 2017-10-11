@@ -1,6 +1,6 @@
 <style>
     #landingBanner .image{
-        background-image: url({{asset('assets/images/girl.png')}});
+        background-image: url('http://img.youtube.com/vi/YCqSh6RhNro/maxresdefault.jpg');
     }
 
     #imageShape .scrim{
@@ -81,6 +81,15 @@
         width: calc(16.66% - 2px);
         height: 75px;
         margin: 1px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .grid-video img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
     }
 </style>
 
@@ -101,10 +110,16 @@
 
                     <div id="videoLinks">
                         @for($i = 0; $i < 3; $i++)
-                            <a href="#" class="layout center" data-path="https://www.youtube.com/embed/EZUK25zohuE">
+                            @php
+                                $video = $videos[$i];
+                                $id = $video['id'];
+                            @endphp
+
+                            <a href="#" class="layout center"
+                                data-path="{{$id}}">
                                 <i class="fa fa-play-circle-o"></i>
                                 <span>
-                                    Bunge la 13 la bajeti - 2017 Maswala ya kudumu
+                                    {{$video['title']}}
                                 </span>
                             </a>
                         @endfor
@@ -113,10 +128,19 @@
                 <div id="youtubeVid" class="flex">
                     <div id="gridVideos" class="layout wrap">
                         @for($i = 0; $i < 30; $i++)
-                            <a href="#" class="grid-video layout center" data-path="https://www.youtube.com/embed/EZUK25zohuE"></a>
+                            @php
+                                $video = $videos[rand(0, 5)];
+                                $id = $video['id'];
+                            @endphp
+
+                            <a href="#" class="grid-video layout center"
+                               data-path="{{$id}}">
+                                <img src="{{asset('http://img.youtube.com/vi/'.$id.'/maxresdefault.jpg')}}" alt="">
+                            </a>
                         @endfor
                     </div>
-                    <iframe id="curVideo" width="100%" height="100%" src="https://www.youtube.com/embed/p6gUsyoXSLE?rel=0" frameborder="0" allowfullscreen=""></iframe>
+                    <iframe id="curVideo" width="100%" height="100%"
+                            src="https://www.youtube.com/embed/YCqSh6RhNro" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

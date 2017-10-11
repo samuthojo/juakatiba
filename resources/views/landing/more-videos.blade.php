@@ -79,10 +79,15 @@
 
         <div id="moreVideoLinks" class="layout wrap">
             @for($i = 0; $i < 30; $i++)
-                <a href="#" class="more-video {{$i > 18 ? 'temp-hidden' : ''}}">
+                @php
+                    $video = $videos[rand(0, 5)];
+                    $id = $video['id'];
+                @endphp
+
+                <a target="_blank" href="https://youtube.com/watch?v={{$id}}" class="more-video {{$i > 18 ? 'temp-hidden' : ''}}">
                     <i class="fa fa-play-circle-o"></i>
                     <span>
-                        {{($i + 1)}}. Bunge la 13 la bajeti - 2017
+                        {{($i + 1)}}. {{$video['title']}}
                     </span>
                 </a>
             @endfor
