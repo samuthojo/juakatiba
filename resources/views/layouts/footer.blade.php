@@ -28,6 +28,7 @@
 
     #footerContacts i{
         position: absolute;
+        top: 0;
         font-size: 3.5em;
         left: -44px;
         margin-right: 4px;
@@ -89,6 +90,72 @@
         margin-left: 0;
         margin-right: 8px;
         background: #f0f0f0;
+    }
+
+    @media all and (max-width : 520px) {
+        footer{
+            min-width: 0;
+        }
+
+        #footerWrapper{
+            padding-bottom: 20px;
+        }
+
+        #footerContacts, #footerContent > .layout{
+            flex-direction: column;
+        }
+
+        #footerContacts{
+            top: 0;
+            padding: 50px 40px;
+            padding-top: 30px;
+            color: #000;
+            background: #ffb223;
+        }
+
+        #footerContacts > div{
+            padding-left: 32px;
+        }
+
+        #footerContacts i{
+            width: 50px;
+            text-align: center;
+            top: -30px;
+            left: -55px;
+            font-size: 2.5em;
+        }
+
+        #footerContacts h3{
+            margin-bottom: 8px;
+            font-size: 1.2em;
+            margin-top: 30px;
+        }
+
+        #footerContacts span{
+            display: block;
+            font-size: 16px;
+            font-family: "Lato regular", sans-serif;
+        }
+
+        #footerContacts strong{
+            font-family: "Lato bold", sans-serif;
+        }
+
+        #footerContent{
+            padding-top: 30px;
+        }
+
+        #footerContent .layout > div h3{
+            height: 30px;
+        }
+
+        #footerContent #about{
+            display: none;
+        }
+
+        #footerLinks, #footerSocials{
+            padding: 20px 40px;
+        }
     }
 </style>
 <footer>
