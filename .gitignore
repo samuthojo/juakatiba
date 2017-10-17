@@ -8,6 +8,8 @@
 /vendor
 /.idea
 /.vagrant
+*.zip
+*.tar.gz
 Homestead.json
 Homestead.yaml
 npm-debug.log
