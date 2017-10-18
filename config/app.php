@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Jua Katiba Ya Tanzania'),
+    'name' => env('APP_NAME', 'Jua Katiba ya Tanzania'),
 
     /*
     |--------------------------------------------------------------------------
