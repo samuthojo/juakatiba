@@ -48,6 +48,10 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
         ],
+        "dev": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:generate"
+        ],
         "deploy": [
             "@php -r \"file_exists('.env.production') || copy('.env.production.example', '.env.production');\"",
             "@php artisan key:generate --env=production",
