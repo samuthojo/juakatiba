@@ -1,7 +1,5 @@
 window.$ = window.jQuery = require('jquery');
 
-require('bootstrap-sass');
-
 let token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {

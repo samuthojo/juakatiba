@@ -8,9 +8,11 @@
 /vendor
 /.idea
 /.vagrant
+*.zip
+*.tar.gz
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
-.env.deploy
+.env.production
